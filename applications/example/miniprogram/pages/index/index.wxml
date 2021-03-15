@@ -1,0 +1,5 @@
+<!-- index.wxml -->
+<view class="container">
+  <view>Count: {{count}}</view>
+  <button onTap="increment">Increment</button>
+</view>

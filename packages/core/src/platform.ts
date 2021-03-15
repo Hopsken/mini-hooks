@@ -1,4 +1,4 @@
-import { createHook } from "hook"
+import { createHook } from "./hook"
 
 interface HookResult<T = any> {
   data?: T,
