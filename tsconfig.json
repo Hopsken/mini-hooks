@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
+    "rootDir": "src",
     "module": "ESNext",
-    "target": "es5",
+    "target": "ESNext",
     "strict": true,
     "composite": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "noUnusedLocals": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "outDir": "dist"
   }
 }
