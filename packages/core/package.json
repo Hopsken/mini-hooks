@@ -2,5 +2,8 @@
   "name": "core",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/wechat-miniprogram": "^3.3.0"
+  }
 }
