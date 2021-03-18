@@ -13,5 +13,8 @@
   "devDependencies": {
     "@types/wechat-miniprogram": "^3.3.0",
     "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "lodash.set": "^4.3.2"
   }
 }

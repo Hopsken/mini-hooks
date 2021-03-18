@@ -7,6 +7,11 @@
   resolved "https://registry.npmjs.org/@types/wechat-miniprogram/-/wechat-miniprogram-3.3.0.tgz#e56cca3caecc09c7440ea9d3cc35b9617bcbc559"
   integrity sha512-kNG8HAB3M8+0L2I4KrHTC5ZLOW4RLY16yT7EVLKU4QZGiPt9wCPrpFpA0OG/8bTC8ToP2nl8JZFj+3+Fo8IlTw==
 
+lodash.set@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.npm.alibaba-inc.com/lodash.set/download/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
+  integrity sha1-2HV7HagH3eJIFrDWqEvqGnYjCyM=
+
 typescript@^4.2.3:
   version "4.2.3"
   resolved "https://registry.npmjs.org/typescript/-/typescript-4.2.3.tgz#39062d8019912d43726298f09493d598048c1ce3"

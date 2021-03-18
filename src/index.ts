@@ -14,16 +14,12 @@ export function useState<T = any>(initVal: T) {
   ensureCurrentInstance()
   const id = ++callIndex
   function setState(nextVal: T) {
-    currentInstance.setData$({
-      [`_state.${id}`]: nextVal
-    })
+    currentInstance.updateState$(id, nextVal)
   }
   if (isMounting) {
-    currentInstance.setData$({
-      [`_state.${id}`]: initVal
-    })
+    currentInstance.updateState$(id, initVal)
   }
-  return [currentInstance.data._state[id], setState]
+  return [currentInstance._state[id], setState]
 }
 
 type DependencyList = ReadonlyArray<any>;
@@ -73,12 +69,10 @@ interface HookResult<T = any> {
 
 export function withHooks(render: () => HookResult) {
   return Page<any, any>({
-    data: {
-      _state: {}
-    },
+    _state: {},
+    _effectStore: {},
 
     onLoad() {
-      this._effectStore = {}
       // this._refsStore = {}
       // this._computedStore = {}
       isMounting = true
@@ -129,8 +123,9 @@ export function withHooks(render: () => HookResult) {
       })
     },
 
-    setData$(data: any) {
-      this.setData(data, this.workLoop)
+    updateState$(id: number, val: any) {
+      this._state[id] = val
+      this.workLoop()
     }
   })
 }
