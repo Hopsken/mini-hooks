@@ -109,6 +109,7 @@ export function createHooksInstance() {
     useEffect,
     runEffects,
     subscribe,
+    reschedule,
     onMountStart() {
       isMounting = true
     },

@@ -35,3 +35,36 @@ export function HookPage<T>(render: PageRenderer<T>) {
     },
   })
 }
+
+type ComponentRenderer<P extends {}, R extends {}> = (props: P) => HookResult<R>
+
+export function HookComponent<P, R>(render: ComponentRenderer<P, R>) {
+  const hooksInstance = createHooksInstance()
+
+  return Component<any, any, any>({
+    // @ts-ignore
+    didMount() {
+      setInstance(hooksInstance)
+      hooksInstance.onMountStart()
+      hooksInstance.subscribe(() => this.runLoop())
+      hooksInstance.onMountEnd()
+    },
+
+    didUpdate() {
+      // TODO: need optimize
+      hooksInstance.reschedule()
+    },
+
+    methods: {
+      runLoop() {
+        setInstance(hooksInstance)
+        const { data, ...methods } = render(this.props)
+        Object.keys(methods).forEach(key => {
+          this[key] = methods[key]
+        })
+        this.setData(data, hooksInstance.runEffects)
+      },
+    }
+
+  })
+}
